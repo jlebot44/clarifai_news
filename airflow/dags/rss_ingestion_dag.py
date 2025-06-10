@@ -3,8 +3,8 @@ sys.path.append("/opt/airflow")  # pour retrouver src/
 
 from airflow.decorators import dag, task
 from datetime import datetime
-from src.ingestion.rss_fetcher import fetch_articles_from_rss, get_existing_ids
-from src.utils.bigquery_writer import upload_to_bigquery
+from src.ingestion.rss_fetcher import fetch_articles_from_rss, get_existing_ids, filter_new_articles
+from src.utils.gcs_writer import upload_to_gcs
 import logging
 
 
@@ -22,15 +22,19 @@ def rss_ingestion_dag():
         table_id = "clarifai-news.news_data.rss_articles"
 
         articles = fetch_articles_from_rss(rss_url, source_name="franceinfo")
-        existing_ids = get_existing_ids(table_id)
+        # existing_ids = get_existing_ids(table_id)
 
         total = len(articles)
-        articles = [a for a in articles if a["id"] not in existing_ids]
+        # articles = filter_new_articles(articles, existing_ids)
         new = len(articles)
 
         logging.info(f"{new} nouveaux articles sur {total} récupérés (doublons ignorés : {total - new})")
-        upload_to_bigquery(articles, table_id)
+        
+        bucket_name = "clarifai-news-bucket"
+        prefix = "rss_articles"
+        file_path = upload_to_gcs(articles, bucket_name, prefix)
+        logging.info(f"Données sauvegardées dans GCS à {file_path}")
 
     extract_and_load()
 
-rss_ingestion_dag = rss_ingestion_dag()
+dag = rss_ingestion_dag()

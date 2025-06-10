@@ -1,0 +1,36 @@
+[2025-06-08T19:53:19.677+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: news_ingestion_pipeline.upload_bigquery manual__2025-06-08T19:52:43.382463+00:00 [queued]>
+[2025-06-08T19:53:19.685+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: news_ingestion_pipeline.upload_bigquery manual__2025-06-08T19:52:43.382463+00:00 [queued]>
+[2025-06-08T19:53:19.685+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-06-08T19:53:19.697+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): upload_bigquery> on 2025-06-08 19:52:43.382463+00:00
+[2025-06-08T19:53:19.703+0000] {standard_task_runner.py:60} INFO - Started process 135 to run task
+[2025-06-08T19:53:19.707+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'news_ingestion_pipeline', 'upload_bigquery', 'manual__2025-06-08T19:52:43.382463+00:00', '--job-id', '85', '--raw', '--subdir', 'DAGS_FOLDER/rss_scrap_dag.py', '--cfg-path', '/tmp/tmpov94coeo']
+[2025-06-08T19:53:19.710+0000] {standard_task_runner.py:88} INFO - Job 85: Subtask upload_bigquery
+[2025-06-08T19:53:19.763+0000] {task_command.py:423} INFO - Running <TaskInstance: news_ingestion_pipeline.upload_bigquery manual__2025-06-08T19:52:43.382463+00:00 [running]> on host 44e96206a18a
+[2025-06-08T19:53:19.828+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='news_ingestion_pipeline' AIRFLOW_CTX_TASK_ID='upload_bigquery' AIRFLOW_CTX_EXECUTION_DATE='2025-06-08T19:52:43.382463+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-06-08T19:52:43.382463+00:00'
+[2025-06-08T19:53:20.948+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/rss_scrap_dag.py", line 61, in step_4_upload_bq
+    upload_to_bigquery(enriched, table_id)
+  File "/opt/airflow/src/utils/bigquery_writer.py", line 17, in upload_to_bigquery
+    errors = client.insert_rows_json(table_id, data)
+  File "/home/airflow/.local/lib/python3.10/site-packages/google/cloud/bigquery/client.py", line 3778, in insert_rows_json
+    response = self._call_api(
+  File "/home/airflow/.local/lib/python3.10/site-packages/google/cloud/bigquery/client.py", line 818, in _call_api
+    return call()
+  File "/home/airflow/.local/lib/python3.10/site-packages/google/api_core/retry.py", line 372, in retry_wrapped_func
+    return retry_target(
+  File "/home/airflow/.local/lib/python3.10/site-packages/google/api_core/retry.py", line 207, in retry_target
+    result = target()
+  File "/home/airflow/.local/lib/python3.10/site-packages/google/cloud/_http/__init__.py", line 494, in api_request
+    raise exceptions.from_http_response(response)
+google.api_core.exceptions.NotFound: 404 POST https://bigquery.googleapis.com/bigquery/v2/projects/ton-projet/datasets/ton_dataset/tables/ta_table/insertAll?prettyPrint=false: Not found: Project ton-projet
+[2025-06-08T19:53:20.965+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=news_ingestion_pipeline, task_id=upload_bigquery, execution_date=20250608T195243, start_date=20250608T195319, end_date=20250608T195320
+[2025-06-08T19:53:20.976+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 85 for task upload_bigquery (404 POST https://bigquery.googleapis.com/bigquery/v2/projects/ton-projet/datasets/ton_dataset/tables/ta_table/insertAll?prettyPrint=false: Not found: Project ton-projet; 135)
+[2025-06-08T19:53:21.003+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-06-08T19:53:21.019+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

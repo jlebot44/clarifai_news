@@ -3,3 +3,4 @@ google-cloud-storage
 google-cloud-core
 python-dotenv
 feedparser
+newspaper3k
