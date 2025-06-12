@@ -10,6 +10,8 @@ from src.ingestion.rss_compile import collect_articles_from_gcs
 from src.ingestion.rss_filter import filter_existing_articles
 from src.ingestion.rss_scrap import enrich_articles_with_content
 from src.utils.bigquery_writer import upload_to_bigquery
+from src.utils.gcs_writer import upload_to_gcs
+from src.utils.gcs_reader import read_from_gcs
 
 # Paramètres du DAG
 default_args = {
@@ -31,34 +33,50 @@ with DAG(
 
     def step_1_collect_articles(**context):
         bucket = "clarifai-news-bucket"
-        prefix = "rss_articles/"
-        articles = collect_articles_from_gcs(bucket, prefix)
-        context["ti"].xcom_push(key="collected_articles", value=articles)
+        prefix = "pipeline_temp/collected_articles"
+
+        articles = collect_articles_from_gcs(bucket, "rss_articles/")
+        file_path = upload_to_gcs(articles, bucket, prefix)
+
+        context["ti"].xcom_push(key="collected_path", value=file_path)
 
     def step_2_filter_existing(**context):
         project = "clarifai-news"
         dataset = "news_data"
         table = "rss_articles"
+        bucket = "clarifai-news-bucket"
+        prefix = "pipeline_temp/filtered_articles"
 
-        collected = context["ti"].xcom_pull(key="collected_articles", task_ids="collect_articles")
-        uniques = [a for a in collected if a.get("id")]
+        collected_path = context["ti"].xcom_pull(key="collected_path", task_ids="collect_articles")
+        articles = read_from_gcs(bucket, collected_path)
 
-        # ✅ Appel corrigé
+        uniques = [a for a in articles if a.get("id")]
         existing_ids = filter_existing_articles(uniques, project, dataset, table)
 
-        # ✅ Sélection des articles à insérer (ID pas encore en BQ)
+        logging.info(f"{len(existing_ids)} doublons détectés.")
         filtered = [a for a in uniques if a["id"] not in existing_ids]
 
-        context["ti"].xcom_push(key="filtered_articles", value=filtered)
+        filtered_path = upload_to_gcs(filtered, bucket, prefix)
+        context["ti"].xcom_push(key="filtered_path", value=filtered_path)
 
     def step_3_scrape_content(**context):
-        articles = context["ti"].xcom_pull(key="filtered_articles", task_ids="filter_existing_articles")
+        bucket = "clarifai-news-bucket"
+        prefix = "pipeline_temp/enriched_articles"
+
+        filtered_path = context["ti"].xcom_pull(key="filtered_path", task_ids="filter_existing_articles")
+        articles = read_from_gcs(bucket, filtered_path)
+
         enriched = enrich_articles_with_content(articles)
-        context["ti"].xcom_push(key="enriched_articles", value=enriched)
+        enriched_path = upload_to_gcs(enriched, bucket, prefix)
+
+        context["ti"].xcom_push(key="enriched_path", value=enriched_path)
 
     def step_4_upload_bq(**context):
         table_id = "clarifai-news.news_data.rss_articles"
-        enriched = context["ti"].xcom_pull(key="enriched_articles", task_ids="scrape_content")
+        bucket = "clarifai-news-bucket"
+        enriched_path = context["ti"].xcom_pull(key="enriched_path", task_ids="scrape_content")
+        enriched = read_from_gcs(bucket, enriched_path)
+
         upload_to_bigquery(enriched, table_id)
 
     # Définition des tâches

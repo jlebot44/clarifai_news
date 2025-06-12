@@ -65,7 +65,7 @@ def collect_articles_from_gcs(bucket_name, folder_prefix):
                     successfully_parsed = True
 
             if successfully_parsed:
-                archive_blob(blob, folder_prefix)
+                # archive_blob(blob, folder_prefix)
                 fichiers_traites += 1
 
         except Exception as e:

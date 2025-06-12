@@ -1,18 +1,18 @@
 from google.cloud import bigquery
+from typing import List, Dict, Set
 
-def get_existing_ids_from_bigquery(project_id, dataset_id, table_id, id_list):
+def get_existing_ids_from_bigquery(project_id: str, dataset_id: str, table_id: str, id_list: List[str]) -> Set[str]:
     """
-    Interroge BigQuery pour trouver les IDs déjà présents.
-    
-    Retourne :
-        Set[str] des IDs trouvés
+    Interroge BigQuery pour récupérer les IDs déjà présents.
     """
+    if not id_list:
+        return set()
+
     client = bigquery.Client(project=project_id)
     table_ref = f"{project_id}.{dataset_id}.{table_id}"
 
-    # Convertir en chaîne de valeurs SQL-safe
+    # Construction de la requête SQL
     id_list_str = ', '.join(f"'{id}'" for id in id_list)
-
     query = f"""
         SELECT id
         FROM `{table_ref}`
@@ -20,17 +20,11 @@ def get_existing_ids_from_bigquery(project_id, dataset_id, table_id, id_list):
     """
 
     query_job = client.query(query)
-    results = query_job.result()
-    return {row.id for row in results}
+    return {row.id for row in query_job.result()}
 
-def filter_existing_articles(articles, project_id, dataset_id, table_id):
+def filter_existing_articles(articles: List[Dict], project_id: str, dataset_id: str, table_id: str) -> Set[str]:
     """
-    Filtre les articles dont l'ID existe déjà dans BigQuery.
-    
-    Retourne :
-        List[dict] : articles trouvés dans BigQuery
+    Retourne les IDs d'articles déjà présents dans BigQuery.
     """
     all_ids = [article.get("id") for article in articles if article.get("id")]
-    existing_ids = get_existing_ids_from_bigquery(project_id, dataset_id, table_id, all_ids)
-
-    return [article for article in articles if article.get("id") in existing_ids]
+    return get_existing_ids_from_bigquery(project_id, dataset_id, table_id, all_ids)
