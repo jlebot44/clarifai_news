@@ -9,6 +9,7 @@ sys.path.append("/opt/airflow")  # pour retrouver src/
 from src.ingestion.rss_compile import collect_articles_from_gcs
 from src.ingestion.rss_filter import filter_existing_articles
 from src.ingestion.rss_scrap import enrich_articles_with_content
+from src.ingestion.rss_cleaner import clean_articles
 from src.utils.bigquery_writer import upload_to_bigquery
 from src.utils.gcs_writer import upload_to_gcs
 from src.utils.gcs_reader import read_from_gcs
@@ -71,13 +72,30 @@ with DAG(
 
         context["ti"].xcom_push(key="enriched_path", value=enriched_path)
 
-    def step_4_upload_bq(**context):
-        table_id = "clarifai-news.news_data.rss_articles"
+
+    def step_4_clean_articles(**context):
         bucket = "clarifai-news-bucket"
+        prefix = "pipeline_temp/cleaned_articles"
+
         enriched_path = context["ti"].xcom_pull(key="enriched_path", task_ids="scrape_content")
         enriched = read_from_gcs(bucket, enriched_path)
 
-        upload_to_bigquery(enriched, table_id)
+        cleaned = clean_articles(enriched)
+        cleaned_path = upload_to_gcs(cleaned, bucket, prefix)
+
+        context["ti"].xcom_push(key="cleaned_path", value=cleaned_path)
+
+
+    def step_5_upload_bq(**context):
+        table_id = "clarifai-news.news_data.rss_articles"
+        bucket = "clarifai-news-bucket"
+        cleaned_path = context["ti"].xcom_pull(key="cleaned_path", task_ids="clean_articles")
+        cleaned = read_from_gcs(bucket, cleaned_path)
+
+        upload_to_bigquery(cleaned, table_id)
+
+
+    
 
     # Définition des tâches
     collect = PythonOperator(
@@ -98,11 +116,17 @@ with DAG(
         provide_context=True,
     )
 
+    clean = PythonOperator(
+        task_id="clean_articles",
+        python_callable=step_4_clean_articles,
+        provide_context=True,
+    )
+
     upload = PythonOperator(
         task_id="upload_bigquery",
-        python_callable=step_4_upload_bq,
+        python_callable=step_5_upload_bq,
         provide_context=True,
     )
 
     # Orchestration
-    collect >> filter_existing >> scrape >> upload
+    collect >> filter_existing >> scrape >> clean >> upload
