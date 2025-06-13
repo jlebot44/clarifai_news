@@ -1,0 +1,273 @@
+[2025-06-12T15:24:37.722+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: score_missing_articles_pipeline.score_missing_articles manual__2025-06-12T15:24:31.588753+00:00 [queued]>
+[2025-06-12T15:24:37.729+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: score_missing_articles_pipeline.score_missing_articles manual__2025-06-12T15:24:31.588753+00:00 [queued]>
+[2025-06-12T15:24:37.730+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-06-12T15:24:37.740+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): score_missing_articles> on 2025-06-12 15:24:31.588753+00:00
+[2025-06-12T15:24:37.748+0000] {standard_task_runner.py:60} INFO - Started process 54 to run task
+[2025-06-12T15:24:37.753+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'score_missing_articles_pipeline', 'score_missing_articles', 'manual__2025-06-12T15:24:31.588753+00:00', '--job-id', '332', '--raw', '--subdir', 'DAGS_FOLDER/score_missing_dag.py', '--cfg-path', '/tmp/tmp0uj0p3ts']
+[2025-06-12T15:24:37.757+0000] {standard_task_runner.py:88} INFO - Job 332: Subtask score_missing_articles
+[2025-06-12T15:24:37.814+0000] {task_command.py:423} INFO - Running <TaskInstance: score_missing_articles_pipeline.score_missing_articles manual__2025-06-12T15:24:31.588753+00:00 [running]> on host ae5839759441
+[2025-06-12T15:24:37.890+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='score_missing_articles_pipeline' AIRFLOW_CTX_TASK_ID='score_missing_articles' AIRFLOW_CTX_EXECUTION_DATE='2025-06-12T15:24:31.588753+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-06-12T15:24:31.588753+00:00'
+[2025-06-12T15:24:37.893+0000] {score_missing_articles.py:19} INFO - Initialisation du client BigQuery...
+[2025-06-12T15:24:37.943+0000] {score_missing_articles.py:32} INFO - Chargement des modèles de langage...
+[2025-06-12T15:27:10.089+0000] {score_missing_articles.py:41} INFO - Modèle ClassCat/gpt2-base-french chargé.
+[2025-06-12T15:55:05.119+0000] {score_missing_articles.py:41} INFO - Modèle asi/gpt-fr-cased-base chargé.
+[2025-06-12T16:01:51.920+0000] {score_missing_articles.py:41} INFO - Modèle asi/gpt-fr-cased-small chargé.
+[2025-06-12T16:11:35.872+0000] {score_missing_articles.py:41} INFO - Modèle dbddv01/gpt2-french-small chargé.
+[2025-06-12T16:11:35.873+0000] {score_missing_articles.py:49} INFO - Exécution de la requête BigQuery pour récupérer les articles à scorer...
+[2025-06-12T16:11:37.489+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 4f8b2031b2b6d8bc0485af94bd885e89...
+[2025-06-12T16:11:40.243+0000] {log.py:232} WARNING - `loss_type=None` was set in the config but it is unrecognised.Using the default loss: `ForCausalLMLoss`.
+[2025-06-12T16:11:40.560+0000] {score_missing_articles.py:63} INFO - score_cat => score=453.2484
+[2025-06-12T16:11:52.556+0000] {score_missing_articles.py:63} INFO - score_base => score=22.0792
+[2025-06-12T16:11:54.148+0000] {score_missing_articles.py:63} INFO - score_small => score=45.6623
+[2025-06-12T16:11:55.656+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=170.5394
+[2025-06-12T16:11:55.657+0000] {score_missing_articles.py:56} INFO - Traitement de l'article d959b1d47d3bb08c58f23d07fb154f27...
+[2025-06-12T16:11:55.972+0000] {score_missing_articles.py:63} INFO - score_cat => score=166.1425
+[2025-06-12T16:11:58.148+0000] {score_missing_articles.py:63} INFO - score_base => score=13.3848
+[2025-06-12T16:11:58.509+0000] {score_missing_articles.py:63} INFO - score_small => score=26.6274
+[2025-06-12T16:11:58.833+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=80.9587
+[2025-06-12T16:11:58.834+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 1b0098748e89e6b645eeec1874453819...
+[2025-06-12T16:12:00.233+0000] {score_missing_articles.py:63} INFO - score_cat => score=282.6244
+[2025-06-12T16:12:10.205+0000] {score_missing_articles.py:63} INFO - score_base => score=15.5540
+[2025-06-12T16:12:11.744+0000] {score_missing_articles.py:63} INFO - score_small => score=31.6709
+[2025-06-12T16:12:13.226+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=87.8643
+[2025-06-12T16:12:13.227+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 78d606fc0ca8df8fb7f4a73777277b62...
+[2025-06-12T16:12:13.789+0000] {score_missing_articles.py:63} INFO - score_cat => score=139.9206
+[2025-06-12T16:12:17.504+0000] {score_missing_articles.py:63} INFO - score_base => score=11.1099
+[2025-06-12T16:12:18.146+0000] {score_missing_articles.py:63} INFO - score_small => score=21.0147
+[2025-06-12T16:12:18.724+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=74.2713
+[2025-06-12T16:12:18.725+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 45e9cf7461140f4d6ed2747419074dec...
+[2025-06-12T16:12:20.119+0000] {score_missing_articles.py:63} INFO - score_cat => score=213.8389
+[2025-06-12T16:12:29.879+0000] {score_missing_articles.py:63} INFO - score_base => score=16.3955
+[2025-06-12T16:12:31.125+0000] {score_missing_articles.py:63} INFO - score_small => score=33.1961
+[2025-06-12T16:12:32.659+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=74.1739
+[2025-06-12T16:12:32.659+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 840d49f1403ecd8cb42a817b8cb115d2...
+[2025-06-12T16:12:34.217+0000] {score_missing_articles.py:63} INFO - score_cat => score=382.6025
+[2025-06-12T16:12:43.595+0000] {score_missing_articles.py:63} INFO - score_base => score=19.8842
+[2025-06-12T16:12:45.118+0000] {score_missing_articles.py:63} INFO - score_small => score=36.9868
+[2025-06-12T16:12:46.650+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=124.7819
+[2025-06-12T16:12:46.652+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 86f4cde756fe4677773dab1c573dbe99...
+[2025-06-12T16:12:46.949+0000] {score_missing_articles.py:63} INFO - score_cat => score=132.4068
+[2025-06-12T16:12:48.898+0000] {score_missing_articles.py:63} INFO - score_base => score=11.9614
+[2025-06-12T16:12:49.173+0000] {score_missing_articles.py:63} INFO - score_small => score=24.2492
+[2025-06-12T16:12:49.473+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=68.5829
+[2025-06-12T16:12:49.473+0000] {score_missing_articles.py:56} INFO - Traitement de l'article c51447de956b0329644e5dcde2340031...
+[2025-06-12T16:12:50.941+0000] {score_missing_articles.py:63} INFO - score_cat => score=270.2616
+[2025-06-12T16:13:00.698+0000] {score_missing_articles.py:63} INFO - score_base => score=18.2806
+[2025-06-12T16:13:02.091+0000] {score_missing_articles.py:63} INFO - score_small => score=34.5372
+[2025-06-12T16:13:03.439+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=103.5816
+[2025-06-12T16:13:03.440+0000] {score_missing_articles.py:56} INFO - Traitement de l'article ddc96ac808886e2b3e54465916311999...
+[2025-06-12T16:13:04.825+0000] {score_missing_articles.py:63} INFO - score_cat => score=326.0054
+[2025-06-12T16:13:14.794+0000] {score_missing_articles.py:63} INFO - score_base => score=17.1988
+[2025-06-12T16:13:16.280+0000] {score_missing_articles.py:63} INFO - score_small => score=37.2628
+[2025-06-12T16:13:17.671+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=138.1843
+[2025-06-12T16:13:17.672+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 4045a752d658e4360ef36dba0b8b58f3...
+[2025-06-12T16:13:18.278+0000] {score_missing_articles.py:63} INFO - score_cat => score=219.5164
+[2025-06-12T16:13:22.118+0000] {score_missing_articles.py:63} INFO - score_base => score=19.0843
+[2025-06-12T16:13:22.744+0000] {score_missing_articles.py:63} INFO - score_small => score=41.2273
+[2025-06-12T16:13:23.334+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=153.2725
+[2025-06-12T16:13:23.337+0000] {score_missing_articles.py:56} INFO - Traitement de l'article f34fe46544e51166cf8ed722e6ccfc3a...
+[2025-06-12T16:13:24.471+0000] {score_missing_articles.py:63} INFO - score_cat => score=348.1889
+[2025-06-12T16:13:32.608+0000] {score_missing_articles.py:63} INFO - score_base => score=16.7508
+[2025-06-12T16:13:36.830+0000] {score_missing_articles.py:63} INFO - score_small => score=33.1437
+[2025-06-12T16:13:38.092+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=107.6193
+[2025-06-12T16:13:38.093+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 1c808ecc5d5de06ae6b854b7edd7e280...
+[2025-06-12T16:13:39.030+0000] {score_missing_articles.py:63} INFO - score_cat => score=352.3984
+[2025-06-12T16:13:44.881+0000] {score_missing_articles.py:63} INFO - score_base => score=23.6926
+[2025-06-12T16:13:45.857+0000] {score_missing_articles.py:63} INFO - score_small => score=45.6332
+[2025-06-12T16:13:46.839+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=160.4238
+[2025-06-12T16:13:46.839+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 1bc06bd46e9f15df1252f8c2d907a8a9...
+[2025-06-12T16:13:47.207+0000] {score_missing_articles.py:63} INFO - score_cat => score=101.6580
+[2025-06-12T16:13:49.308+0000] {score_missing_articles.py:63} INFO - score_base => score=10.4666
+[2025-06-12T16:13:49.608+0000] {score_missing_articles.py:63} INFO - score_small => score=19.9796
+[2025-06-12T16:13:49.915+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=60.8932
+[2025-06-12T16:13:49.915+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 20292a9bac230566c4c790cce5d295b6...
+[2025-06-12T16:13:50.840+0000] {score_missing_articles.py:63} INFO - score_cat => score=420.2910
+[2025-06-12T16:13:56.022+0000] {score_missing_articles.py:63} INFO - score_base => score=18.9628
+[2025-06-12T16:13:56.734+0000] {score_missing_articles.py:63} INFO - score_small => score=39.5178
+[2025-06-12T16:13:57.494+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=138.8705
+[2025-06-12T16:13:57.495+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 663b8ce416914df524736ca5edeb586d...
+[2025-06-12T16:13:58.889+0000] {score_missing_articles.py:63} INFO - score_cat => score=433.5823
+[2025-06-12T16:14:08.232+0000] {score_missing_articles.py:63} INFO - score_base => score=20.3719
+[2025-06-12T16:14:09.591+0000] {score_missing_articles.py:63} INFO - score_small => score=37.1938
+[2025-06-12T16:14:11.108+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=145.5927
+[2025-06-12T16:14:11.108+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 5af7250901b97ed710743f2f9ce01f05...
+[2025-06-12T16:14:11.672+0000] {score_missing_articles.py:63} INFO - score_cat => score=317.3820
+[2025-06-12T16:14:15.480+0000] {score_missing_articles.py:63} INFO - score_base => score=16.5056
+[2025-06-12T16:14:16.017+0000] {score_missing_articles.py:63} INFO - score_small => score=39.1850
+[2025-06-12T16:14:16.648+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=95.3659
+[2025-06-12T16:14:16.648+0000] {score_missing_articles.py:56} INFO - Traitement de l'article a3ccaeec56dcea644d076c8d34a0678f...
+[2025-06-12T16:14:18.371+0000] {score_missing_articles.py:63} INFO - score_cat => score=319.5706
+[2025-06-12T16:14:29.379+0000] {score_missing_articles.py:63} INFO - score_base => score=15.1922
+[2025-06-12T16:14:31.644+0000] {score_missing_articles.py:63} INFO - score_small => score=24.9983
+[2025-06-12T16:14:33.826+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=76.2335
+[2025-06-12T16:14:33.827+0000] {score_missing_articles.py:56} INFO - Traitement de l'article a8dde3f33fce62181d6c184e821625e6...
+[2025-06-12T16:14:35.507+0000] {score_missing_articles.py:63} INFO - score_cat => score=417.5562
+[2025-06-12T16:14:43.750+0000] {score_missing_articles.py:63} INFO - score_base => score=21.2795
+[2025-06-12T16:14:44.975+0000] {score_missing_articles.py:63} INFO - score_small => score=53.3544
+[2025-06-12T16:14:46.247+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=120.7274
+[2025-06-12T16:14:46.248+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 604f0824e8a33ea940363fc346e12ea9...
+[2025-06-12T16:14:47.603+0000] {score_missing_articles.py:63} INFO - score_cat => score=522.2021
+[2025-06-12T16:14:56.858+0000] {score_missing_articles.py:63} INFO - score_base => score=25.8918
+[2025-06-12T16:14:58.468+0000] {score_missing_articles.py:63} INFO - score_small => score=54.1518
+[2025-06-12T16:14:59.945+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=173.9712
+[2025-06-12T16:14:59.946+0000] {score_missing_articles.py:56} INFO - Traitement de l'article fe55389b8d4de9cbcfa791a2bad811bb...
+[2025-06-12T16:15:01.590+0000] {score_missing_articles.py:63} INFO - score_cat => score=388.5650
+[2025-06-12T16:15:11.342+0000] {score_missing_articles.py:63} INFO - score_base => score=25.0737
+[2025-06-12T16:15:12.779+0000] {score_missing_articles.py:63} INFO - score_small => score=47.4794
+[2025-06-12T16:15:14.148+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=118.4155
+[2025-06-12T16:15:14.148+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 4bfd542cd2c8971a01892c2289834b1c...
+[2025-06-12T16:15:15.194+0000] {score_missing_articles.py:63} INFO - score_cat => score=249.1895
+[2025-06-12T16:15:21.588+0000] {score_missing_articles.py:63} INFO - score_base => score=14.6303
+[2025-06-12T16:15:22.542+0000] {score_missing_articles.py:63} INFO - score_small => score=25.7564
+[2025-06-12T16:15:23.460+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=78.5118
+[2025-06-12T16:15:23.461+0000] {score_missing_articles.py:56} INFO - Traitement de l'article a4d264eece8020eec39ead19fbb48a32...
+[2025-06-12T16:15:24.168+0000] {score_missing_articles.py:63} INFO - score_cat => score=278.3185
+[2025-06-12T16:15:29.513+0000] {score_missing_articles.py:63} INFO - score_base => score=16.6561
+[2025-06-12T16:15:30.209+0000] {score_missing_articles.py:63} INFO - score_small => score=27.4605
+[2025-06-12T16:15:30.936+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=97.6238
+[2025-06-12T16:15:30.937+0000] {score_missing_articles.py:56} INFO - Traitement de l'article eefdedcc8c4b5fa2f5cc8d5b4eac92b2...
+[2025-06-12T16:15:32.282+0000] {score_missing_articles.py:63} INFO - score_cat => score=359.1359
+[2025-06-12T16:15:42.447+0000] {score_missing_articles.py:63} INFO - score_base => score=22.1584
+[2025-06-12T16:15:43.965+0000] {score_missing_articles.py:63} INFO - score_small => score=41.2269
+[2025-06-12T16:15:45.435+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=114.0244
+[2025-06-12T16:15:45.436+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 679555aeeb9c4d000e2d3992c7318dad...
+[2025-06-12T16:15:45.826+0000] {score_missing_articles.py:63} INFO - score_cat => score=250.1968
+[2025-06-12T16:15:48.572+0000] {score_missing_articles.py:63} INFO - score_base => score=17.9602
+[2025-06-12T16:15:48.960+0000] {score_missing_articles.py:63} INFO - score_small => score=33.6778
+[2025-06-12T16:15:49.362+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=107.5806
+[2025-06-12T16:15:49.362+0000] {score_missing_articles.py:56} INFO - Traitement de l'article bc06e92c015d80ada18361b59c39c6ad...
+[2025-06-12T16:15:49.711+0000] {score_missing_articles.py:63} INFO - score_cat => score=222.4866
+[2025-06-12T16:15:52.232+0000] {score_missing_articles.py:63} INFO - score_base => score=19.5177
+[2025-06-12T16:15:52.612+0000] {score_missing_articles.py:63} INFO - score_small => score=37.3292
+[2025-06-12T16:15:53.001+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=126.9250
+[2025-06-12T16:15:53.001+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 46a998e6badddd0b55fc3d8244cb3464...
+[2025-06-12T16:15:53.494+0000] {score_missing_articles.py:63} INFO - score_cat => score=181.0665
+[2025-06-12T16:15:57.090+0000] {score_missing_articles.py:63} INFO - score_base => score=18.0033
+[2025-06-12T16:15:57.589+0000] {score_missing_articles.py:63} INFO - score_small => score=33.0687
+[2025-06-12T16:15:58.094+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=77.7086
+[2025-06-12T16:15:58.095+0000] {score_missing_articles.py:56} INFO - Traitement de l'article d17655f54f3061e2c8b279e21d561a09...
+[2025-06-12T16:15:59.351+0000] {score_missing_articles.py:63} INFO - score_cat => score=463.4673
+[2025-06-12T16:16:07.524+0000] {score_missing_articles.py:63} INFO - score_base => score=16.5884
+[2025-06-12T16:16:08.811+0000] {score_missing_articles.py:63} INFO - score_small => score=36.0216
+[2025-06-12T16:16:10.196+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=151.7258
+[2025-06-12T16:16:10.196+0000] {score_missing_articles.py:56} INFO - Traitement de l'article f783564c8e12a40725fdf4d37b58be19...
+[2025-06-12T16:16:10.563+0000] {score_missing_articles.py:63} INFO - score_cat => score=206.4920
+[2025-06-12T16:16:13.308+0000] {score_missing_articles.py:63} INFO - score_base => score=18.9457
+[2025-06-12T16:16:13.695+0000] {score_missing_articles.py:63} INFO - score_small => score=40.3421
+[2025-06-12T16:16:14.085+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=111.0987
+[2025-06-12T16:16:14.086+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 82bd5cc7e38f60a8fa36ff89631747c6...
+[2025-06-12T16:16:15.391+0000] {score_missing_articles.py:63} INFO - score_cat => score=307.6060
+[2025-06-12T16:16:24.291+0000] {score_missing_articles.py:63} INFO - score_base => score=16.8673
+[2025-06-12T16:16:25.933+0000] {score_missing_articles.py:63} INFO - score_small => score=37.1652
+[2025-06-12T16:16:27.355+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=122.9397
+[2025-06-12T16:16:27.356+0000] {score_missing_articles.py:56} INFO - Traitement de l'article ef8abffe3b0f399076f3590e02acb24f...
+[2025-06-12T16:16:29.082+0000] {score_missing_articles.py:63} INFO - score_cat => score=539.9918
+[2025-06-12T16:16:37.687+0000] {score_missing_articles.py:63} INFO - score_base => score=17.7503
+[2025-06-12T16:16:39.132+0000] {score_missing_articles.py:63} INFO - score_small => score=33.2254
+[2025-06-12T16:16:40.465+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=130.5115
+[2025-06-12T16:16:40.466+0000] {score_missing_articles.py:56} INFO - Traitement de l'article ebaca0a9107850efb530ba5bf39c080f...
+[2025-06-12T16:16:40.863+0000] {score_missing_articles.py:63} INFO - score_cat => score=170.1074
+[2025-06-12T16:16:43.577+0000] {score_missing_articles.py:63} INFO - score_base => score=10.9883
+[2025-06-12T16:16:43.965+0000] {score_missing_articles.py:63} INFO - score_small => score=26.6463
+[2025-06-12T16:16:44.385+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=88.4187
+[2025-06-12T16:16:44.386+0000] {score_missing_articles.py:56} INFO - Traitement de l'article beebe83d1abb9913ee24a8f2bb437e85...
+[2025-06-12T16:16:44.943+0000] {score_missing_articles.py:63} INFO - score_cat => score=224.7215
+[2025-06-12T16:16:48.821+0000] {score_missing_articles.py:63} INFO - score_base => score=14.2477
+[2025-06-12T16:16:49.398+0000] {score_missing_articles.py:63} INFO - score_small => score=26.5636
+[2025-06-12T16:16:49.997+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=66.0968
+[2025-06-12T16:16:49.998+0000] {score_missing_articles.py:56} INFO - Traitement de l'article fd22504ef37f353668fa327859e534f3...
+[2025-06-12T16:16:50.385+0000] {score_missing_articles.py:63} INFO - score_cat => score=262.7591
+[2025-06-12T16:16:53.234+0000] {score_missing_articles.py:63} INFO - score_base => score=20.7267
+[2025-06-12T16:16:53.777+0000] {score_missing_articles.py:63} INFO - score_small => score=45.8433
+[2025-06-12T16:16:54.219+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=167.3062
+[2025-06-12T16:16:54.219+0000] {score_missing_articles.py:56} INFO - Traitement de l'article e7b1eb0aaad654e730cc36caa5f7de42...
+[2025-06-12T16:16:55.273+0000] {score_missing_articles.py:63} INFO - score_cat => score=398.3849
+[2025-06-12T16:17:01.638+0000] {score_missing_articles.py:63} INFO - score_base => score=15.5373
+[2025-06-12T16:17:02.585+0000] {score_missing_articles.py:63} INFO - score_small => score=30.9023
+[2025-06-12T16:17:03.575+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=120.5643
+[2025-06-12T16:17:03.576+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 09d80fbec578c299201b0e575c021188...
+[2025-06-12T16:17:03.963+0000] {score_missing_articles.py:63} INFO - score_cat => score=192.9164
+[2025-06-12T16:17:06.533+0000] {score_missing_articles.py:63} INFO - score_base => score=21.4512
+[2025-06-12T16:17:06.890+0000] {score_missing_articles.py:63} INFO - score_small => score=42.6739
+[2025-06-12T16:17:07.255+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=147.0555
+[2025-06-12T16:17:07.255+0000] {score_missing_articles.py:56} INFO - Traitement de l'article c581e450adbbb9e7d10158d0d236839e...
+[2025-06-12T16:17:07.459+0000] {score_missing_articles.py:63} INFO - score_cat => score=90.4597
+[2025-06-12T16:17:08.817+0000] {score_missing_articles.py:63} INFO - score_base => score=11.0939
+[2025-06-12T16:17:09.020+0000] {score_missing_articles.py:63} INFO - score_small => score=21.0205
+[2025-06-12T16:17:09.245+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=52.1037
+[2025-06-12T16:17:09.245+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 7bf1c23ace9f8ece9f7907262348233e...
+[2025-06-12T16:17:10.556+0000] {score_missing_articles.py:63} INFO - score_cat => score=409.9693
+[2025-06-12T16:17:19.285+0000] {score_missing_articles.py:63} INFO - score_base => score=13.1638
+[2025-06-12T16:17:20.602+0000] {score_missing_articles.py:63} INFO - score_small => score=23.4779
+[2025-06-12T16:17:21.905+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=92.0831
+[2025-06-12T16:17:21.906+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 9445f40fb5a71b5c72ff030df2151464...
+[2025-06-12T16:17:22.545+0000] {score_missing_articles.py:63} INFO - score_cat => score=246.6053
+[2025-06-12T16:17:27.252+0000] {score_missing_articles.py:63} INFO - score_base => score=15.4539
+[2025-06-12T16:17:27.957+0000] {score_missing_articles.py:63} INFO - score_small => score=35.8086
+[2025-06-12T16:17:28.711+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=113.1772
+[2025-06-12T16:17:28.712+0000] {score_missing_articles.py:56} INFO - Traitement de l'article b9380d484c126eb86f26be25cdb22c5a...
+[2025-06-12T16:17:30.194+0000] {score_missing_articles.py:63} INFO - score_cat => score=325.9336
+[2025-06-12T16:17:39.842+0000] {score_missing_articles.py:63} INFO - score_base => score=16.2541
+[2025-06-12T16:17:41.578+0000] {score_missing_articles.py:63} INFO - score_small => score=28.4585
+[2025-06-12T16:17:43.496+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=80.6796
+[2025-06-12T16:17:43.497+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 3f7c79650a9c7b3ce9651bef46181c59...
+[2025-06-12T16:17:45.768+0000] {score_missing_articles.py:63} INFO - score_cat => score=582.3178
+[2025-06-12T16:17:56.557+0000] {score_missing_articles.py:63} INFO - score_base => score=17.8414
+[2025-06-12T16:17:58.161+0000] {score_missing_articles.py:63} INFO - score_small => score=33.3524
+[2025-06-12T16:17:59.638+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=132.4753
+[2025-06-12T16:17:59.639+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 2fc7a985938921a19b855d6675544c29...
+[2025-06-12T16:18:00.661+0000] {score_missing_articles.py:63} INFO - score_cat => score=239.5112
+[2025-06-12T16:18:07.205+0000] {score_missing_articles.py:63} INFO - score_base => score=16.0467
+[2025-06-12T16:18:08.252+0000] {score_missing_articles.py:63} INFO - score_small => score=30.6811
+[2025-06-12T16:18:09.310+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=98.3770
+[2025-06-12T16:18:09.311+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 3ba1bad341bf92673851ceb425781119...
+[2025-06-12T16:18:10.364+0000] {score_missing_articles.py:63} INFO - score_cat => score=273.0185
+[2025-06-12T16:18:17.150+0000] {score_missing_articles.py:63} INFO - score_base => score=16.5077
+[2025-06-12T16:18:18.358+0000] {score_missing_articles.py:63} INFO - score_small => score=29.2640
+[2025-06-12T16:18:19.544+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=98.3352
+[2025-06-12T16:18:19.544+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 70cd0104e33c25fda95268069bbe86a4...
+[2025-06-12T16:18:20.366+0000] {score_missing_articles.py:63} INFO - score_cat => score=184.4117
+[2025-06-12T16:18:25.537+0000] {score_missing_articles.py:63} INFO - score_base => score=12.9102
+[2025-06-12T16:18:26.234+0000] {score_missing_articles.py:63} INFO - score_small => score=22.3341
+[2025-06-12T16:18:27.150+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=57.0499
+[2025-06-12T16:18:27.151+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 2023d8a51802cd5271c4fd835471dbc1...
+[2025-06-12T16:18:27.929+0000] {score_missing_articles.py:63} INFO - score_cat => score=239.2444
+[2025-06-12T16:18:32.702+0000] {score_missing_articles.py:63} INFO - score_base => score=16.0820
+[2025-06-12T16:18:33.427+0000] {score_missing_articles.py:63} INFO - score_small => score=35.0099
+[2025-06-12T16:18:34.157+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=96.8132
+[2025-06-12T16:18:34.158+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 0685198d93d79d74feab4f4123d7d7e3...
+[2025-06-12T16:18:35.252+0000] {score_missing_articles.py:63} INFO - score_cat => score=674.7722
+[2025-06-12T16:18:42.539+0000] {score_missing_articles.py:63} INFO - score_base => score=28.9159
+[2025-06-12T16:18:43.798+0000] {score_missing_articles.py:63} INFO - score_small => score=68.5592
+[2025-06-12T16:18:44.941+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=183.1235
+[2025-06-12T16:18:44.942+0000] {score_missing_articles.py:56} INFO - Traitement de l'article e48e8dead1a8a91255622ce53944a865...
+[2025-06-12T16:18:45.675+0000] {score_missing_articles.py:63} INFO - score_cat => score=130.7985
+[2025-06-12T16:18:50.190+0000] {score_missing_articles.py:63} INFO - score_base => score=14.0358
+[2025-06-12T16:18:50.884+0000] {score_missing_articles.py:63} INFO - score_small => score=21.5526
+[2025-06-12T16:18:51.598+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=50.1975
+[2025-06-12T16:18:51.599+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 49aa14b89c530be770d618a1ce9e9f87...
+[2025-06-12T16:18:53.338+0000] {score_missing_articles.py:63} INFO - score_cat => score=415.9263
+[2025-06-12T16:19:03.181+0000] {score_missing_articles.py:63} INFO - score_base => score=18.5572
+[2025-06-12T16:19:04.635+0000] {score_missing_articles.py:63} INFO - score_small => score=35.3456
+[2025-06-12T16:19:06.138+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=111.4642
+[2025-06-12T16:19:06.138+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 4bc0fd151d88dc1c0f534f4674a3869c...
+[2025-06-12T16:19:06.762+0000] {score_missing_articles.py:63} INFO - score_cat => score=335.0670
+[2025-06-12T16:19:10.858+0000] {score_missing_articles.py:63} INFO - score_base => score=19.5936
+[2025-06-12T16:19:11.437+0000] {score_missing_articles.py:63} INFO - score_small => score=41.6503
+[2025-06-12T16:19:12.106+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=137.3536
+[2025-06-12T16:19:12.106+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 9d2edf9e883f98c879f390b00e0cadbf...
+[2025-06-12T16:19:13.448+0000] {score_missing_articles.py:63} INFO - score_cat => score=325.1301
+[2025-06-12T16:19:22.208+0000] {score_missing_articles.py:63} INFO - score_base => score=20.4395
+[2025-06-12T16:19:23.707+0000] {score_missing_articles.py:63} INFO - score_small => score=40.9723
+[2025-06-12T16:19:25.224+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=94.3992
+[2025-06-12T16:19:25.224+0000] {score_missing_articles.py:56} INFO - Traitement de l'article c0b72136f8d53541b481f6e29d43e2ac...
+[2025-06-12T16:19:26.141+0000] {score_missing_articles.py:63} INFO - score_cat => score=425.8155
+[2025-06-12T16:19:31.275+0000] {score_missing_articles.py:63} INFO - score_base => score=25.0936
+[2025-06-12T16:19:32.048+0000] {score_missing_articles.py:63} INFO - score_small => score=45.4625
+[2025-06-12T16:19:32.901+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=119.7196
+[2025-06-12T16:19:32.902+0000] {score_missing_articles.py:74} INFO - 50 lignes à mettre à jour dans BigQuery.
+[2025-06-12T16:19:45.346+0000] {score_missing_articles.py:89} INFO - Mise à jour BigQuery terminée.
+[2025-06-12T16:19:45.683+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-06-12T16:19:45.696+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=score_missing_articles_pipeline, task_id=score_missing_articles, execution_date=20250612T152431, start_date=20250612T152437, end_date=20250612T161945
+[2025-06-12T16:19:45.979+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-06-12T16:19:46.023+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,22 @@
+[2025-06-12T19:58:58.438+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: score_missing_articles_pipeline.score_missing_articles manual__2025-06-12T19:58:52.964684+00:00 [queued]>
+[2025-06-12T19:58:58.446+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: score_missing_articles_pipeline.score_missing_articles manual__2025-06-12T19:58:52.964684+00:00 [queued]>
+[2025-06-12T19:58:58.447+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-06-12T19:58:58.459+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): score_missing_articles> on 2025-06-12 19:58:52.964684+00:00
+[2025-06-12T19:58:58.471+0000] {standard_task_runner.py:60} INFO - Started process 179 to run task
+[2025-06-12T19:58:58.476+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'score_missing_articles_pipeline', 'score_missing_articles', 'manual__2025-06-12T19:58:52.964684+00:00', '--job-id', '353', '--raw', '--subdir', 'DAGS_FOLDER/score_missing_dag.py', '--cfg-path', '/tmp/tmpu0amch7k']
+[2025-06-12T19:58:58.480+0000] {standard_task_runner.py:88} INFO - Job 353: Subtask score_missing_articles
+[2025-06-12T19:58:58.549+0000] {task_command.py:423} INFO - Running <TaskInstance: score_missing_articles_pipeline.score_missing_articles manual__2025-06-12T19:58:52.964684+00:00 [running]> on host ae5839759441
+[2025-06-12T19:58:58.624+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='score_missing_articles_pipeline' AIRFLOW_CTX_TASK_ID='score_missing_articles' AIRFLOW_CTX_EXECUTION_DATE='2025-06-12T19:58:52.964684+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-06-12T19:58:52.964684+00:00'
+[2025-06-12T19:59:00.403+0000] {score_missing_articles.py:36} INFO - Modèle chargé : ClassCat/gpt2-base-french
+[2025-06-12T19:59:05.360+0000] {score_missing_articles.py:36} INFO - Modèle chargé : asi/gpt-fr-cased-base
+[2025-06-12T19:59:07.017+0000] {score_missing_articles.py:36} INFO - Modèle chargé : asi/gpt-fr-cased-small
+[2025-06-12T19:59:08.010+0000] {score_missing_articles.py:36} INFO - Modèle chargé : dbddv01/gpt2-french-small
+[2025-06-12T19:59:09.306+0000] {score_missing_articles.py:46} INFO - 10 articles à traiter.
+[2025-06-12T19:59:10.730+0000] {log.py:232} WARNING - `loss_type=None` was set in the config but it is unrecognised.Using the default loss: `ForCausalLMLoss`.
+[2025-06-12T20:00:39.120+0000] {score_missing_articles.py:71} INFO - Préparation de la requête de mise à jour pour 10 lignes...
+[2025-06-12T20:00:39.121+0000] {score_missing_articles.py:103} INFO - Exécution de la requête d’UPDATE...
+[2025-06-12T20:02:46.048+0000] {local_task_job_runner.py:302} WARNING - State of this instance has been externally set to failed. Terminating instance.
+[2025-06-12T20:02:46.051+0000] {process_utils.py:131} INFO - Sending 15 to group 179. PIDs of all processes in the group: [179]
+[2025-06-12T20:02:46.052+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 179
+[2025-06-12T20:02:46.053+0000] {taskinstance.py:2450} ERROR - Received SIGTERM. Terminating subprocesses.
+[2025-06-12T20:02:46.747+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=179, status='terminated', exitcode=0, started='19:58:58') (179) terminated with exit code 0

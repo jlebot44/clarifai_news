@@ -48,15 +48,4 @@ def fetch_articles_from_rss(rss_url: str, source_name: str, language: str = "fr"
 
     return articles
 
-# --------------------------------------------------
-# Filtrage
-# --------------------------------------------------
 
-def get_existing_ids(table_id: str) -> set:
-    client = bigquery.Client()
-    query = f"SELECT id FROM `{table_id}`"
-    results = client.query(query)
-    return {row.id for row in results}
-
-def filter_new_articles(articles: List[Dict], existing_ids: set) -> List[Dict]:
-    return [a for a in articles if a["id"] not in existing_ids]

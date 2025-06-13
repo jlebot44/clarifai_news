@@ -1,0 +1,123 @@
+[2025-06-12T20:20:54.267+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: score_missing_articles_pipeline.score_missing_articles manual__2025-06-12T20:20:49.070952+00:00 [queued]>
+[2025-06-12T20:20:54.273+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: score_missing_articles_pipeline.score_missing_articles manual__2025-06-12T20:20:49.070952+00:00 [queued]>
+[2025-06-12T20:20:54.274+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-06-12T20:20:54.286+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): score_missing_articles> on 2025-06-12 20:20:49.070952+00:00
+[2025-06-12T20:20:54.296+0000] {standard_task_runner.py:60} INFO - Started process 254 to run task
+[2025-06-12T20:20:54.299+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'score_missing_articles_pipeline', 'score_missing_articles', 'manual__2025-06-12T20:20:49.070952+00:00', '--job-id', '358', '--raw', '--subdir', 'DAGS_FOLDER/score_missing_dag.py', '--cfg-path', '/tmp/tmp6wuyt5b1']
+[2025-06-12T20:20:54.303+0000] {standard_task_runner.py:88} INFO - Job 358: Subtask score_missing_articles
+[2025-06-12T20:20:54.357+0000] {task_command.py:423} INFO - Running <TaskInstance: score_missing_articles_pipeline.score_missing_articles manual__2025-06-12T20:20:49.070952+00:00 [running]> on host ae5839759441
+[2025-06-12T20:20:54.423+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='score_missing_articles_pipeline' AIRFLOW_CTX_TASK_ID='score_missing_articles' AIRFLOW_CTX_EXECUTION_DATE='2025-06-12T20:20:49.070952+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-06-12T20:20:49.070952+00:00'
+[2025-06-12T20:20:54.425+0000] {score_missing_articles.py:19} INFO - Initialisation du client BigQuery...
+[2025-06-12T20:20:54.463+0000] {score_missing_articles.py:32} INFO - Chargement des modèles de langage...
+[2025-06-12T20:20:56.901+0000] {score_missing_articles.py:41} INFO - Modèle ClassCat/gpt2-base-french chargé.
+[2025-06-12T20:21:01.020+0000] {score_missing_articles.py:41} INFO - Modèle asi/gpt-fr-cased-base chargé.
+[2025-06-12T20:21:02.793+0000] {score_missing_articles.py:41} INFO - Modèle asi/gpt-fr-cased-small chargé.
+[2025-06-12T20:21:03.908+0000] {score_missing_articles.py:41} INFO - Modèle dbddv01/gpt2-french-small chargé.
+[2025-06-12T20:21:03.908+0000] {score_missing_articles.py:49} INFO - Exécution de la requête BigQuery pour récupérer les articles à scorer...
+[2025-06-12T20:21:04.801+0000] {score_missing_articles.py:56} INFO - Traitement de l'article b9a7a6865e69449e9f39c639681b1a91...
+[2025-06-12T20:21:05.058+0000] {log.py:232} WARNING - `loss_type=None` was set in the config but it is unrecognised.Using the default loss: `ForCausalLMLoss`.
+[2025-06-12T20:21:05.077+0000] {score_missing_articles.py:63} INFO - score_cat => score=110.0433
+[2025-06-12T20:21:06.880+0000] {score_missing_articles.py:63} INFO - score_base => score=7.9151
+[2025-06-12T20:21:07.165+0000] {score_missing_articles.py:63} INFO - score_small => score=26.7475
+[2025-06-12T20:21:07.436+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=67.2870
+[2025-06-12T20:21:07.436+0000] {score_missing_articles.py:56} INFO - Traitement de l'article f9bae5016afe3aaa550a8d00b4386916...
+[2025-06-12T20:21:08.683+0000] {score_missing_articles.py:63} INFO - score_cat => score=209.8552
+[2025-06-12T20:21:16.422+0000] {score_missing_articles.py:63} INFO - score_base => score=12.6135
+[2025-06-12T20:21:17.562+0000] {score_missing_articles.py:63} INFO - score_small => score=19.6340
+[2025-06-12T20:21:18.718+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=57.2611
+[2025-06-12T20:21:18.718+0000] {score_missing_articles.py:56} INFO - Traitement de l'article fcec22b5833f91cf1b24a937d6524c7f...
+[2025-06-12T20:21:19.374+0000] {score_missing_articles.py:63} INFO - score_cat => score=289.4646
+[2025-06-12T20:21:24.089+0000] {score_missing_articles.py:63} INFO - score_base => score=13.7088
+[2025-06-12T20:21:24.754+0000] {score_missing_articles.py:63} INFO - score_small => score=22.8054
+[2025-06-12T20:21:25.431+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=78.3718
+[2025-06-12T20:21:25.431+0000] {score_missing_articles.py:56} INFO - Traitement de l'article f87475982c3e7989b385c7a0ce4afc41...
+[2025-06-12T20:21:26.823+0000] {score_missing_articles.py:63} INFO - score_cat => score=450.0003
+[2025-06-12T20:21:35.120+0000] {score_missing_articles.py:63} INFO - score_base => score=16.7423
+[2025-06-12T20:21:36.411+0000] {score_missing_articles.py:63} INFO - score_small => score=31.2964
+[2025-06-12T20:21:37.795+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=102.5144
+[2025-06-12T20:21:37.796+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 568b41dcb3de5ac1dbd4a12fd0652491...
+[2025-06-12T20:21:39.107+0000] {score_missing_articles.py:63} INFO - score_cat => score=429.7874
+[2025-06-12T20:21:47.271+0000] {score_missing_articles.py:63} INFO - score_base => score=20.8815
+[2025-06-12T20:21:48.610+0000] {score_missing_articles.py:63} INFO - score_small => score=41.5625
+[2025-06-12T20:21:50.052+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=145.2486
+[2025-06-12T20:21:50.053+0000] {score_missing_articles.py:56} INFO - Traitement de l'article da496131550291e90c2256214c4840d2...
+[2025-06-12T20:21:50.562+0000] {score_missing_articles.py:63} INFO - score_cat => score=234.7803
+[2025-06-12T20:21:54.064+0000] {score_missing_articles.py:63} INFO - score_base => score=11.4191
+[2025-06-12T20:21:54.558+0000] {score_missing_articles.py:63} INFO - score_small => score=22.3027
+[2025-06-12T20:21:55.074+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=80.8439
+[2025-06-12T20:21:55.075+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 5e140b04214eeae6d68e60ca2ddd5060...
+[2025-06-12T20:21:55.871+0000] {score_missing_articles.py:63} INFO - score_cat => score=387.1064
+[2025-06-12T20:22:01.308+0000] {score_missing_articles.py:63} INFO - score_base => score=17.8584
+[2025-06-12T20:22:02.206+0000] {score_missing_articles.py:63} INFO - score_small => score=36.9623
+[2025-06-12T20:22:03.085+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=123.8336
+[2025-06-12T20:22:03.085+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 65dfaa25a7f9258290bbb1a05f3490b7...
+[2025-06-12T20:22:03.554+0000] {score_missing_articles.py:63} INFO - score_cat => score=320.5987
+[2025-06-12T20:22:06.508+0000] {score_missing_articles.py:63} INFO - score_base => score=29.3293
+[2025-06-12T20:22:06.943+0000] {score_missing_articles.py:63} INFO - score_small => score=58.0997
+[2025-06-12T20:22:07.434+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=150.8773
+[2025-06-12T20:22:07.435+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 1e1903163163e37888c9885b66e26cd6...
+[2025-06-12T20:22:08.015+0000] {score_missing_articles.py:63} INFO - score_cat => score=192.6795
+[2025-06-12T20:22:11.723+0000] {score_missing_articles.py:63} INFO - score_base => score=12.8106
+[2025-06-12T20:22:12.256+0000] {score_missing_articles.py:63} INFO - score_small => score=27.0233
+[2025-06-12T20:22:12.802+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=77.3289
+[2025-06-12T20:22:12.803+0000] {score_missing_articles.py:56} INFO - Traitement de l'article e46516f9015c25baea5ed9a6818a8868...
+[2025-06-12T20:22:13.342+0000] {score_missing_articles.py:63} INFO - score_cat => score=178.8775
+[2025-06-12T20:22:17.528+0000] {score_missing_articles.py:63} INFO - score_base => score=10.5981
+[2025-06-12T20:22:18.070+0000] {score_missing_articles.py:63} INFO - score_small => score=27.3829
+[2025-06-12T20:22:18.628+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=92.8190
+[2025-06-12T20:22:18.629+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 7a4fb7526f1e67ef0653d2c9ff7a3d9c...
+[2025-06-12T20:22:19.190+0000] {score_missing_articles.py:63} INFO - score_cat => score=311.3455
+[2025-06-12T20:22:22.932+0000] {score_missing_articles.py:63} INFO - score_base => score=15.3705
+[2025-06-12T20:22:23.496+0000] {score_missing_articles.py:63} INFO - score_small => score=29.2940
+[2025-06-12T20:22:24.140+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=113.8641
+[2025-06-12T20:22:24.141+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 128526c89546abbb72a6aba8b2a6e6bb...
+[2025-06-12T20:22:24.885+0000] {score_missing_articles.py:63} INFO - score_cat => score=156.8780
+[2025-06-12T20:22:29.321+0000] {score_missing_articles.py:63} INFO - score_base => score=13.0769
+[2025-06-12T20:22:29.949+0000] {score_missing_articles.py:63} INFO - score_small => score=22.6020
+[2025-06-12T20:22:30.639+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=66.6647
+[2025-06-12T20:22:30.639+0000] {score_missing_articles.py:56} INFO - Traitement de l'article d63722155c6bf99143df1b22857acd44...
+[2025-06-12T20:22:31.573+0000] {score_missing_articles.py:63} INFO - score_cat => score=343.4314
+[2025-06-12T20:22:38.139+0000] {score_missing_articles.py:63} INFO - score_base => score=16.4221
+[2025-06-12T20:22:39.119+0000] {score_missing_articles.py:63} INFO - score_small => score=28.6193
+[2025-06-12T20:22:40.179+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=102.4412
+[2025-06-12T20:22:40.180+0000] {score_missing_articles.py:56} INFO - Traitement de l'article f6ac1ce9af9f619bd9684fd361a4de72...
+[2025-06-12T20:22:40.469+0000] {score_missing_articles.py:63} INFO - score_cat => score=239.5518
+[2025-06-12T20:22:42.294+0000] {score_missing_articles.py:63} INFO - score_base => score=23.7526
+[2025-06-12T20:22:42.559+0000] {score_missing_articles.py:63} INFO - score_small => score=57.6545
+[2025-06-12T20:22:42.854+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=162.6446
+[2025-06-12T20:22:42.855+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 885145847c73534061e29b233af2b24c...
+[2025-06-12T20:22:43.497+0000] {score_missing_articles.py:63} INFO - score_cat => score=280.8876
+[2025-06-12T20:22:47.976+0000] {score_missing_articles.py:63} INFO - score_base => score=18.7359
+[2025-06-12T20:22:48.597+0000] {score_missing_articles.py:63} INFO - score_small => score=29.3516
+[2025-06-12T20:22:49.241+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=121.6829
+[2025-06-12T20:22:49.241+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 1d38e3116933e6b2188f08d990f8cf18...
+[2025-06-12T20:22:49.491+0000] {score_missing_articles.py:63} INFO - score_cat => score=143.3417
+[2025-06-12T20:22:51.174+0000] {score_missing_articles.py:63} INFO - score_base => score=17.4485
+[2025-06-12T20:22:51.421+0000] {score_missing_articles.py:63} INFO - score_small => score=41.2523
+[2025-06-12T20:22:51.691+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=151.9356
+[2025-06-12T20:22:51.691+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 5875465845eb07870f7835c0e8c9670d...
+[2025-06-12T20:22:52.159+0000] {score_missing_articles.py:63} INFO - score_cat => score=188.9969
+[2025-06-12T20:22:55.358+0000] {score_missing_articles.py:63} INFO - score_base => score=11.9354
+[2025-06-12T20:22:55.863+0000] {score_missing_articles.py:63} INFO - score_small => score=27.8875
+[2025-06-12T20:22:56.333+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=75.6505
+[2025-06-12T20:22:56.334+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 4a56b929cad2d95fd6b3e28548a203da...
+[2025-06-12T20:22:56.591+0000] {score_missing_articles.py:63} INFO - score_cat => score=104.8500
+[2025-06-12T20:22:58.390+0000] {score_missing_articles.py:63} INFO - score_base => score=10.8703
+[2025-06-12T20:22:58.641+0000] {score_missing_articles.py:63} INFO - score_small => score=23.7275
+[2025-06-12T20:22:58.898+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=91.1391
+[2025-06-12T20:22:58.898+0000] {score_missing_articles.py:56} INFO - Traitement de l'article 1838c34c5fc10e30815ddcd5df0b5d7b...
+[2025-06-12T20:22:59.923+0000] {score_missing_articles.py:63} INFO - score_cat => score=292.4782
+[2025-06-12T20:23:06.697+0000] {score_missing_articles.py:63} INFO - score_base => score=15.6133
+[2025-06-12T20:23:07.779+0000] {score_missing_articles.py:63} INFO - score_small => score=28.1116
+[2025-06-12T20:23:08.853+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=77.9367
+[2025-06-12T20:23:08.854+0000] {score_missing_articles.py:56} INFO - Traitement de l'article e7bac5c6ac0778362d75f8053a3d7354...
+[2025-06-12T20:23:09.602+0000] {score_missing_articles.py:63} INFO - score_cat => score=223.8082
+[2025-06-12T20:23:14.363+0000] {score_missing_articles.py:63} INFO - score_base => score=17.6809
+[2025-06-12T20:23:15.072+0000] {score_missing_articles.py:63} INFO - score_small => score=34.4065
+[2025-06-12T20:23:15.836+0000] {score_missing_articles.py:63} INFO - score_dbdd => score=76.5593
+[2025-06-12T20:23:15.836+0000] {score_missing_articles.py:74} INFO - 20 lignes à mettre à jour dans BigQuery.
+[2025-06-12T20:23:21.181+0000] {score_missing_articles.py:89} INFO - Mise à jour BigQuery terminée.
+[2025-06-12T20:23:21.406+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-06-12T20:23:21.415+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=score_missing_articles_pipeline, task_id=score_missing_articles, execution_date=20250612T202049, start_date=20250612T202054, end_date=20250612T202321
+[2025-06-12T20:23:21.566+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-06-12T20:23:21.580+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

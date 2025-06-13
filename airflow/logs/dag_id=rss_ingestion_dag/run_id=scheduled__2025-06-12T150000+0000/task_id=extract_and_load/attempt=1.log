@@ -1,0 +1,15 @@
+[2025-06-12T15:15:01.856+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: rss_ingestion_dag.extract_and_load scheduled__2025-06-12T15:00:00+00:00 [queued]>
+[2025-06-12T15:15:01.863+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: rss_ingestion_dag.extract_and_load scheduled__2025-06-12T15:00:00+00:00 [queued]>
+[2025-06-12T15:15:01.864+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-06-12T15:15:01.874+0000] {taskinstance.py:2191} INFO - Executing <Task(_PythonDecoratedOperator): extract_and_load> on 2025-06-12 15:00:00+00:00
+[2025-06-12T15:15:01.880+0000] {standard_task_runner.py:60} INFO - Started process 99 to run task
+[2025-06-12T15:15:01.884+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'rss_ingestion_dag', 'extract_and_load', 'scheduled__2025-06-12T15:00:00+00:00', '--job-id', '329', '--raw', '--subdir', 'DAGS_FOLDER/rss_ingestion_dag.py', '--cfg-path', '/tmp/tmpg7ugq9if']
+[2025-06-12T15:15:01.887+0000] {standard_task_runner.py:88} INFO - Job 329: Subtask extract_and_load
+[2025-06-12T15:15:01.939+0000] {task_command.py:423} INFO - Running <TaskInstance: rss_ingestion_dag.extract_and_load scheduled__2025-06-12T15:00:00+00:00 [running]> on host 5d91b796f22c
+[2025-06-12T15:15:02.006+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='rss_ingestion_dag' AIRFLOW_CTX_TASK_ID='extract_and_load' AIRFLOW_CTX_EXECUTION_DATE='2025-06-12T15:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-06-12T15:00:00+00:00'
+[2025-06-12T15:15:02.164+0000] {rss_ingestion_dag.py:31} INFO - 29 nouveaux articles sur 29 récupérés (doublons ignorés : 0)
+[2025-06-12T15:15:02.559+0000] {rss_ingestion_dag.py:36} INFO - Données sauvegardées dans GCS à rss_articles/rss_20250612T151502_22206b.json
+[2025-06-12T15:15:02.560+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-06-12T15:15:02.568+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=rss_ingestion_dag, task_id=extract_and_load, execution_date=20250612T150000, start_date=20250612T151501, end_date=20250612T151502
+[2025-06-12T15:15:02.619+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-06-12T15:15:02.634+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -65,5 +65,21 @@ services:
     <<: *airflow-common
     command: triggerer
 
+  streamlit:
+    build:
+      context: ./streamlit_app
+    container_name: streamlit_app
+    ports:
+      - "8501:8501"
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS=/keys/clarifai-sa-key.json
+    volumes:
+      - ./streamlit_app:/app
+      - ./secrets/clef.json:/keys/clarifai-sa-key.json:ro
+    working_dir: /app
+    command: streamlit run app.py --server.port=8501 --server.address=0.0.0.0
+    depends_on:
+      - webserver
+
 volumes:
   postgres-db-volume:

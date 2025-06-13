@@ -4,3 +4,5 @@ google-cloud-core
 python-dotenv
 feedparser
 newspaper3k
+transformers
+torch

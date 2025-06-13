@@ -3,7 +3,7 @@ sys.path.append("/opt/airflow")  # pour retrouver src/
 
 from airflow.decorators import dag, task
 from datetime import datetime
-from src.ingestion.rss_fetcher import fetch_articles_from_rss, get_existing_ids, filter_new_articles
+from src.ingestion.rss_fetcher import fetch_articles_from_rss
 from src.utils.gcs_writer import upload_to_gcs
 import logging
 
