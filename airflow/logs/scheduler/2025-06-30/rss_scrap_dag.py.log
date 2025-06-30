@@ -1,0 +1,42 @@
+[2025-06-30T08:21:32.444+0000] {processor.py:161} INFO - Started process (PID=809) to work on /opt/airflow/dags/rss_scrap_dag.py
+[2025-06-30T08:21:32.447+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/rss_scrap_dag.py for tasks to queue
+[2025-06-30T08:21:32.452+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:21:32.451+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/rss_scrap_dag.py
+[2025-06-30T08:21:35.141+0000] {processor.py:840} INFO - DAG(s) 'news_ingestion_pipeline' retrieved from /opt/airflow/dags/rss_scrap_dag.py
+[2025-06-30T08:21:35.178+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:21:35.178+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-06-30T08:21:35.189+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:21:35.188+0000] {dag.py:3823} INFO - Setting next_dagrun for news_ingestion_pipeline to None, run_after=None
+[2025-06-30T08:21:35.214+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/rss_scrap_dag.py took 2.774 seconds
+[2025-06-30T08:22:06.067+0000] {processor.py:161} INFO - Started process (PID=817) to work on /opt/airflow/dags/rss_scrap_dag.py
+[2025-06-30T08:22:06.068+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/rss_scrap_dag.py for tasks to queue
+[2025-06-30T08:22:06.070+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:22:06.070+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/rss_scrap_dag.py
+[2025-06-30T08:22:06.709+0000] {processor.py:840} INFO - DAG(s) 'news_ingestion_pipeline' retrieved from /opt/airflow/dags/rss_scrap_dag.py
+[2025-06-30T08:22:06.729+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:22:06.729+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-06-30T08:22:06.738+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:22:06.738+0000] {dag.py:3823} INFO - Setting next_dagrun for news_ingestion_pipeline to None, run_after=None
+[2025-06-30T08:22:06.757+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/rss_scrap_dag.py took 0.695 seconds
+[2025-06-30T08:22:37.623+0000] {processor.py:161} INFO - Started process (PID=825) to work on /opt/airflow/dags/rss_scrap_dag.py
+[2025-06-30T08:22:37.624+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/rss_scrap_dag.py for tasks to queue
+[2025-06-30T08:22:37.626+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:22:37.626+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/rss_scrap_dag.py
+[2025-06-30T08:22:38.222+0000] {processor.py:840} INFO - DAG(s) 'news_ingestion_pipeline' retrieved from /opt/airflow/dags/rss_scrap_dag.py
+[2025-06-30T08:22:38.241+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:22:38.240+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-06-30T08:22:38.249+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:22:38.249+0000] {dag.py:3823} INFO - Setting next_dagrun for news_ingestion_pipeline to None, run_after=None
+[2025-06-30T08:22:38.265+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/rss_scrap_dag.py took 0.646 seconds
+[2025-06-30T08:23:08.608+0000] {processor.py:161} INFO - Started process (PID=833) to work on /opt/airflow/dags/rss_scrap_dag.py
+[2025-06-30T08:23:08.610+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/rss_scrap_dag.py for tasks to queue
+[2025-06-30T08:23:08.612+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:23:08.611+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/rss_scrap_dag.py
+[2025-06-30T08:23:09.239+0000] {processor.py:840} INFO - DAG(s) 'news_ingestion_pipeline' retrieved from /opt/airflow/dags/rss_scrap_dag.py
+[2025-06-30T08:23:09.259+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:23:09.258+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-06-30T08:23:09.267+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:23:09.267+0000] {dag.py:3823} INFO - Setting next_dagrun for news_ingestion_pipeline to None, run_after=None
+[2025-06-30T08:23:09.283+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/rss_scrap_dag.py took 0.678 seconds
+[2025-06-30T08:23:39.563+0000] {processor.py:161} INFO - Started process (PID=841) to work on /opt/airflow/dags/rss_scrap_dag.py
+[2025-06-30T08:23:39.564+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/rss_scrap_dag.py for tasks to queue
+[2025-06-30T08:23:39.566+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:23:39.566+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/rss_scrap_dag.py
+[2025-06-30T08:23:40.158+0000] {processor.py:840} INFO - DAG(s) 'news_ingestion_pipeline' retrieved from /opt/airflow/dags/rss_scrap_dag.py
+[2025-06-30T08:23:40.176+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:23:40.176+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-06-30T08:23:40.185+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:23:40.185+0000] {dag.py:3823} INFO - Setting next_dagrun for news_ingestion_pipeline to None, run_after=None
+[2025-06-30T08:23:40.200+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/rss_scrap_dag.py took 0.641 seconds
+[2025-06-30T08:24:10.543+0000] {processor.py:161} INFO - Started process (PID=849) to work on /opt/airflow/dags/rss_scrap_dag.py
+[2025-06-30T08:24:10.544+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/rss_scrap_dag.py for tasks to queue
+[2025-06-30T08:24:10.546+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:24:10.545+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/rss_scrap_dag.py
+[2025-06-30T08:24:11.125+0000] {processor.py:840} INFO - DAG(s) 'news_ingestion_pipeline' retrieved from /opt/airflow/dags/rss_scrap_dag.py
+[2025-06-30T08:24:11.143+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:24:11.142+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-06-30T08:24:11.150+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:24:11.150+0000] {dag.py:3823} INFO - Setting next_dagrun for news_ingestion_pipeline to None, run_after=None
+[2025-06-30T08:24:11.165+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/rss_scrap_dag.py took 0.626 seconds

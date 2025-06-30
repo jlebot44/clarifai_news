@@ -1,0 +1,35 @@
+[2025-06-30T08:21:32.604+0000] {processor.py:161} INFO - Started process (PID=810) to work on /opt/airflow/dags/score_missing_dag.py
+[2025-06-30T08:21:32.606+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/score_missing_dag.py for tasks to queue
+[2025-06-30T08:21:32.609+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:21:32.608+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/score_missing_dag.py
+[2025-06-30T08:21:40.849+0000] {processor.py:840} INFO - DAG(s) 'score_missing_articles_pipeline' retrieved from /opt/airflow/dags/score_missing_dag.py
+[2025-06-30T08:21:40.872+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:21:40.871+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-06-30T08:21:40.886+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:21:40.886+0000] {dag.py:3823} INFO - Setting next_dagrun for score_missing_articles_pipeline to None, run_after=None
+[2025-06-30T08:21:40.905+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/score_missing_dag.py took 8.308 seconds
+[2025-06-30T08:22:11.220+0000] {processor.py:161} INFO - Started process (PID=823) to work on /opt/airflow/dags/score_missing_dag.py
+[2025-06-30T08:22:11.221+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/score_missing_dag.py for tasks to queue
+[2025-06-30T08:22:11.223+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:22:11.223+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/score_missing_dag.py
+[2025-06-30T08:22:15.212+0000] {processor.py:840} INFO - DAG(s) 'score_missing_articles_pipeline' retrieved from /opt/airflow/dags/score_missing_dag.py
+[2025-06-30T08:22:15.235+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:22:15.234+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-06-30T08:22:15.248+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:22:15.247+0000] {dag.py:3823} INFO - Setting next_dagrun for score_missing_articles_pipeline to None, run_after=None
+[2025-06-30T08:22:15.273+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/score_missing_dag.py took 4.057 seconds
+[2025-06-30T08:22:45.514+0000] {processor.py:161} INFO - Started process (PID=831) to work on /opt/airflow/dags/score_missing_dag.py
+[2025-06-30T08:22:45.514+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/score_missing_dag.py for tasks to queue
+[2025-06-30T08:22:45.516+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:22:45.516+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/score_missing_dag.py
+[2025-06-30T08:22:49.296+0000] {processor.py:840} INFO - DAG(s) 'score_missing_articles_pipeline' retrieved from /opt/airflow/dags/score_missing_dag.py
+[2025-06-30T08:22:49.318+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:22:49.317+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-06-30T08:22:49.327+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:22:49.327+0000] {dag.py:3823} INFO - Setting next_dagrun for score_missing_articles_pipeline to None, run_after=None
+[2025-06-30T08:22:49.342+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/score_missing_dag.py took 3.833 seconds
+[2025-06-30T08:23:19.473+0000] {processor.py:161} INFO - Started process (PID=839) to work on /opt/airflow/dags/score_missing_dag.py
+[2025-06-30T08:23:19.474+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/score_missing_dag.py for tasks to queue
+[2025-06-30T08:23:19.477+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:23:19.476+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/score_missing_dag.py
+[2025-06-30T08:23:23.263+0000] {processor.py:840} INFO - DAG(s) 'score_missing_articles_pipeline' retrieved from /opt/airflow/dags/score_missing_dag.py
+[2025-06-30T08:23:23.283+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:23:23.283+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-06-30T08:23:23.292+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:23:23.292+0000] {dag.py:3823} INFO - Setting next_dagrun for score_missing_articles_pipeline to None, run_after=None
+[2025-06-30T08:23:23.308+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/score_missing_dag.py took 3.838 seconds
+[2025-06-30T08:23:53.461+0000] {processor.py:161} INFO - Started process (PID=847) to work on /opt/airflow/dags/score_missing_dag.py
+[2025-06-30T08:23:53.462+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/score_missing_dag.py for tasks to queue
+[2025-06-30T08:23:53.464+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:23:53.464+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/score_missing_dag.py
+[2025-06-30T08:23:57.212+0000] {processor.py:840} INFO - DAG(s) 'score_missing_articles_pipeline' retrieved from /opt/airflow/dags/score_missing_dag.py
+[2025-06-30T08:23:57.230+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:23:57.230+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-06-30T08:23:57.239+0000] {logging_mixin.py:188} INFO - [2025-06-30T08:23:57.239+0000] {dag.py:3823} INFO - Setting next_dagrun for score_missing_articles_pipeline to None, run_after=None
+[2025-06-30T08:23:57.253+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/score_missing_dag.py took 3.796 seconds
